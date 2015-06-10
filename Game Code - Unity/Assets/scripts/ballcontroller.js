@@ -41,9 +41,16 @@ function Update () {
 
 function OnCollisionEnter(col:Collision)
 {	
+	if(powerUpCounter<0)
+	{
+		powerUpCounter = 0;
+	}
 	if (col.gameObject.tag == "special")
 	{
-		powerUpCounter = powerUpCounter + 1;
+		if (powerUpCounter==0 || powerUpCounter==1)
+		{
+			powerUpCounter = powerUpCounter + 1;
+		}
 		
 		audio.PlayOneShot(bricksound,0.5);
 	
@@ -56,7 +63,10 @@ function OnCollisionEnter(col:Collision)
 	}
 	else if (col.gameObject.tag == "normal")
 	{
-		powerUpCounter = powerUpCounter - 1;
+		if(powerUpCounter==1)
+		{
+			powerUpCounter = powerUpCounter - 1;
+		}
 		
 		audio.PlayOneShot(bricksound,0.5);
 	
