@@ -1,3 +1,4 @@
+//declared  global variables
 var yposition: float = 0;
 var zposition: float = 0;
 var xboundary: float = 0;
@@ -12,12 +13,14 @@ var laserRigidbody:Rigidbody;
 var materials:Material[];
 
 function Start () {
+	//spawnBall function was called
 	spawnBall();
+	//coroutine paddleColours was initialized
 	StartCoroutine("paddleColours");
 }
 
 function Update () {
-	//with mouse
+	//mouse controls
 		transform.position.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
 		
 		if (transform.position.x < -xboundary + maxboundary)
@@ -29,6 +32,7 @@ function Update () {
 			transform.position = new Vector3(xboundary - maxboundary, yposition, zposition);
 		}
 	
+	//if the ball is attached to the paddle
 	if(attachedBall) 
 	{
 			this.gameObject.transform.localScale = new Vector3(36, 4, 12);
