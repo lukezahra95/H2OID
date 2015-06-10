@@ -1,5 +1,6 @@
 import System.Collections.Generic;
 
+//global variables declaration
 var speed:float = 4250;
 var ball:GameObject;
 var bricksound:AudioClip;
@@ -9,9 +10,11 @@ var powers:GameObject[];
 var rand:int;
 var powerUpSound:AudioClip;
 
+//this code is executed only once at the beginning
 function Start () {
 }
 
+//this code is executed every frame
 function Update () {
 	if(transform.position.y < -100)
 	{
